@@ -1,20 +1,19 @@
 import { createConfig } from "ponder";
-
-import { ExampleContractAbi } from "./abis/ExampleContractAbi";
+import { mockTokenABI } from "./abis/abi";
 
 export default createConfig({
   chains: {
-    mainnet: {
-      id: 1,
-      rpc: process.env.PONDER_RPC_URL_1!,
+    baseSepolia: {
+      id: 84532,
+      rpc: "https://base-sepolia.g.alchemy.com/v2/G-qZEvlqAPJRLWjrL-CW9",
     },
   },
   contracts: {
-    ExampleContract: {
-      chain: "mainnet",
-      abi: ExampleContractAbi,
-      address: "0x0000000000000000000000000000000000000000",
-      startBlock: 1234567,
+    MockIDRX: {
+      chain: "baseSepolia",
+      abi: mockTokenABI,
+      address: "0xa42b876f75d955de6d721dc15f61f2e533fc0855",
+      startBlock: 33749107,
     },
   },
 });
